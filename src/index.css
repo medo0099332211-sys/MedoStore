@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 95%;
+    --gold: 43 57% 54%;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #0a0a0f;
+    color: #f5f5f5;
+    font-family: 'Cairo', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(201, 168, 76, 0.3);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 168, 76, 0.5);
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(201, 168, 76, 0.3);
+    color: #fff;
+  }
+
+  /* Focus visible */
+  :focus-visible {
+    outline: 2px solid rgba(201, 168, 76, 0.6);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Glassmorphism - Main Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* Glassmorphism - Modal */
+  .glass-modal {
+    background: rgba(15, 15, 25, 0.85);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Glassmorphism - Header */
+  .glass-header {
+    background: rgba(10, 10, 15, 0.80);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Glassmorphism - Button */
+  .glass-btn {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    transition: all 0.2s ease;
+  }
+  .glass-btn:hover {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Glassmorphism - Gold Button */
+  .glass-btn-gold {
+    background: rgba(201, 168, 76, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 168, 76, 0.30);
+    transition: all 0.2s ease;
+  }
+  .glass-btn-gold:hover {
+    background: rgba(201, 168, 76, 0.20);
+    border-color: rgba(201, 168, 76, 0.50);
+  }
+
+  /* Inner glass element */
+  .glass-inner {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Price Badge */
+  .glass-price-badge {
+    background: rgba(10, 10, 15, 0.80);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 168, 76, 0.30);
+  }
+
+  /* Form Input */
+  .glass-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 0.75rem;
+    padding: 0.625rem 0.875rem;
+    color: #fff;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+  .glass-input:focus {
+    outline: none;
+    border-color: rgba(201, 168, 76, 0.50);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.10);
+  }
+  .glass-input::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+  }
+  .glass-input option {
+    background: #1a1a2e;
+    color: #fff;
+  }
+
+  /* Select styling */
+  select.glass-input {
+    cursor: pointer;
+  }
+
+  /* Textarea */
+  textarea.glass-input {
+    resize: vertical;
+    min-height: 70px;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: #c9a84c;
+  }
+  .bg-gold {
+    background-color: #c9a84c;
+  }
+  .bg-gold-light {
+    background-color: #e0c06a;
+  }
+  .hover\:bg-gold-light:hover {
+    background-color: #e0c06a;
+  }
+  .hover\:bg-gold:hover {
+    background-color: #c9a84c;
+  }
+  .border-gold {
+    border-color: #c9a84c;
+  }
+  .hover\:border-gold:hover {
+    border-color: #c9a84c;
+  }
+  .text-dark {
+    color: #0a0a0f;
+  }
+  .bg-dark {
+    background-color: #0a0a0f;
+  }
+  .shadow-gold-glow {
+    box-shadow: 0 0 30px rgba(201, 168, 76, 0.3);
+  }
+  .hover\:shadow-gold-glow:hover {
+    box-shadow: 0 0 30px rgba(201, 168, 76, 0.3);
+  }
+
+  /* RTL/LTR logical properties helpers */
+  .start-3 {
+    inset-inline-start: 0.75rem;
+  }
+  .end-3 {
+    inset-inline-end: 0.75rem;
+  }
+  .end-4 {
+    inset-inline-end: 1rem;
+  }
+  .ps-9 {
+    padding-inline-start: 2.25rem;
+  }
+  .pe-9 {
+    padding-inline-end: 2.25rem;
+  }
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-cairo {
+    font-family: 'Cairo', sans-serif;
+  }
+}
