@@ -19,6 +19,7 @@ export function saveProducts(products: Product[]): void {
 
 export function addProduct(product: Product): void {
   const products = getProducts();
+  // تعديل: تأكدنا أن المصفوفة تستوعب أي عدد جديد وتضيفه في البداية
   products.unshift(product);
   saveProducts(products);
 }
@@ -126,7 +127,6 @@ const DEMO_PRODUCTS: Product[] = [
 
 export function initDemoProducts(): void {
   const existing = getProducts();
-  // Only seed if store is empty and demo products haven't been seeded
   if (existing.length === 0 && !localStorage.getItem('medo_demo_seeded')) {
     saveProducts(DEMO_PRODUCTS);
     localStorage.setItem('medo_demo_seeded', 'true');
