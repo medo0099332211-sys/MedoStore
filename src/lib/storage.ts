@@ -1,6 +1,7 @@
 import { Product } from '@/types';
 
-const PRODUCTS_KEY = 'medo_store_products';
+// تغيير اسم المفتاح لإجبار المتصفح على فتح مخزن جديد وإلغاء التعليقة القديمة
+const PRODUCTS_KEY = 'medo_store_v2'; 
 const PASSWORD_KEY = 'medo_admin_password';
 const DEFAULT_PASSWORD = '55555';
 
@@ -19,7 +20,7 @@ export function saveProducts(products: Product[]): void {
 
 export function addProduct(product: Product): void {
   const products = getProducts();
-  // تعديل: تأكدنا أن المصفوفة تستوعب أي عدد جديد وتضيفه في البداية
+  // التأكد من إضافة المنتج الجديد في أول القائمة
   products.unshift(product);
   saveProducts(products);
 }
@@ -127,8 +128,9 @@ const DEMO_PRODUCTS: Product[] = [
 
 export function initDemoProducts(): void {
   const existing = getProducts();
-  if (existing.length === 0 && !localStorage.getItem('medo_demo_seeded')) {
+  // التأكد من تهيئة المنتجات التجريبية في المخزن الجديد
+  if (existing.length === 0 && !localStorage.getItem('medo_v2_seeded')) {
     saveProducts(DEMO_PRODUCTS);
-    localStorage.setItem('medo_demo_seeded', 'true');
+    localStorage.setItem('medo_v2_seeded', 'true');
   }
 }
